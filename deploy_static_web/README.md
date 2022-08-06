@@ -27,5 +27,5 @@ Access the website via CloudFront: http://dvb3jakjtjlhj.cloudfront.net
 
 
 ## Step 4. Configure CloudFront to retrieve and distribute web static files to speed up the delivery
-<img width="1361" alt="image" src="https://user-images.githubusercontent.com/30593186/183248244-1463c898-80b1-48fb-ae3b-62b6bd814df5.png">
+<img width="1156" alt="image" src="https://user-images.githubusercontent.com/30593186/183248995-04b97194-d38b-4dd7-b32d-c76e6540900b.png">
 
