@@ -4,7 +4,7 @@ Access the bucket object via its S3 object URL: https://williamtravelweb.s3.amaz
 <br>
 Access the website via website-endpoint: http://williamtravelweb.s3-website-us-east-1.amazonaws.com
 <br>
-Access the website via CloudFront: http://d1wwsh1qoi8jz6.cloudfront.net
+Access the website via CloudFront: http://dvb3jakjtjlhj.cloudfront.net
 <br>
 
 
