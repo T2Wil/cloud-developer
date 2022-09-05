@@ -53,11 +53,12 @@ import { nextTick } from 'process';
         })
       }
       else return res.status(400).send({
-        error: "Missing image_url or is empty."
+        error: "Missing image_url."
       })
     } catch (error) {
       res.status(404).send({
-        Message: "Image not found or invalid image url!",
+        Message: `Image not found or unsupported format!
+        Supported formats are: jpeg,png,bmp,tiff and gif`,
         error
       })
     }
