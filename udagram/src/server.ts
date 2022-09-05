@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
+import { nextTick } from 'process';
 
 (async () => {
 
@@ -37,31 +38,26 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     res.send("try GET /filteredimage?image_url={{}}")
   } );
 
-  app.get("/filteredimage", async( req, res) => {
+
+  app.get("/filteredimage", async( req, res, ) => {
     try {
       
       let { image_url } = req.query;
 
-      let filterted_image_url = await filterImageFromURL(image_url);
-      // get the resulting file
-      // copy it to s3 bucket 
-      // get public url link to the s3 bucket object
-      // send the url link in the response
-
+      
       if(image_url){
-        res.status(200).send(
-          {
-            image_url,
-            filterted_image_url
-
-          }
-        )
+        let filterted_image_url:string = await filterImageFromURL(image_url);
+        
+        res.status(200).sendFile( filterted_image_url,async function (){
+          await deleteLocalFiles([filterted_image_url])
+        })
       }
       else return res.status(400).send({
         error: "Missing image_url or is empty."
       })
     } catch (error) {
-      res.status(500).send({
+      res.status(404).send({
+        Message: "Image not found or invalid image url!",
         error
       })
     }
