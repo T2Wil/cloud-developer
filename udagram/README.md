@@ -16,6 +16,8 @@ cd udagram
 npm i
 npm run dev
 ```
+## Test through the Postman
+<img width="1065" alt="image" src="https://user-images.githubusercontent.com/30593186/188612966-1d5c8660-d47d-4fce-95f7-b512ea7f4f3e.png">
 
 ## How to build the app
 ```
