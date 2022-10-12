@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - 18
+script:
+  # Docker login
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  
+  # Build and push udagram-api-feed docker image
+  - docker build -t udagram-api-feed ./monolith-to-microservices-project/udagram-api-feed
+  - docker push udagram-api-feed
+  
+  # Build and push udagram-api-user docker image
+  - docker build -t udagram-api-user ./monolith-to-microservices-project/udagram-api-user
+  - docker push udagram-api-user
+
+  # Build and push udagram-frontend docker image
+  - docker build -t udagram-frontend ./monolith-to-microservices-project/udagram-frontend
+  - docker push udagram-frontend
+
+  # Build and push udagram-reverseproxy docker image
+  - docker build -t udagram-reverseproxy ./monolith-to-microservices-project/udagram-reverseproxy
+  - docker push udagram-reverseproxy
+  
