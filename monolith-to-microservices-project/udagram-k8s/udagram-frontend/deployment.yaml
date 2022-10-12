@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: udagram-frontend
+  name: udagram-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-frontend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: udagram-frontend
+    spec:
+      containers:
+      - image: twilliam/udagram-frontend:0.1.4
+        name: udagram-frontend
+        ports: 
+          - containerPort: 8100
+
+        resources: {}
+
+        
+status: {}

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: udagram-api
+  name: udagram-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-api
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: udagram-api
+    spec:
+      containers:
+      - image: twilliam/udagram-api:0.1.1
+        name: udagram-api
+        ports: 
+          - containerPort: 8080
+        envFrom:
+          - secretRef:
+              name: udagram-api
+          - configMapRef:
+              name: udagram-api
+
+        resources: {}
+
+        
+status: {}
